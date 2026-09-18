@@ -305,6 +305,23 @@
     if (name === "aprender") loadPath();
     if (name === "perfil") refreshProfile();
     if (name === "padres") refreshParents();
+    if (window.DidzagoAudio && window.DidzagoAudio.isEnabled()) {
+      if (name === "home") {
+        const hello = document.querySelector("[data-copy='home-hello']");
+        const sub = document.querySelector("[data-copy='home-sub']");
+        window.DidzagoAudio.speakParts([
+          hello ? hello.textContent : "¡Hola!",
+          sub ? sub.textContent : "Tu mundo te espera.",
+          "Elige una isla para empezar tu misión.",
+        ]);
+      }
+      if (name === "onboarding") {
+        window.DidzagoAudio.speak("¿Cuántos años tienes? Elige tu aventura.");
+      }
+      if (name === "splash") {
+        window.DidzagoAudio.speak("Bienvenido a Didzago. Toca Empezar.");
+      }
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -607,7 +624,7 @@
           .filter(Boolean)
           .join(". ");
       };
-      window.DidzagoAudio.stop();
+      window.DidzagoAudio.unlock();
       window.DidzagoAudio.speakRound(round);
     }
 
@@ -935,6 +952,7 @@
 
   document.querySelectorAll("[data-go]").forEach((el) => {
     el.addEventListener("click", () => {
+      if (window.DidzagoAudio) window.DidzagoAudio.unlock();
       if (el.dataset.subject) state.subject = el.dataset.subject;
       if (el.dataset.game) state.gameType = el.dataset.game;
       if (el.dataset.mode === "libre") state.gameType = "memorama";
@@ -943,7 +961,14 @@
   });
 
   document.querySelectorAll("[data-set-age]").forEach((btn) => {
-    btn.addEventListener("click", () => applyAge(btn.dataset.setAge));
+    btn.addEventListener("click", () => {
+      if (window.DidzagoAudio) window.DidzagoAudio.unlock();
+      applyAge(btn.dataset.setAge);
+      if (window.DidzagoAudio && window.DidzagoAudio.isEnabled()) {
+        const name = ageLabels[btn.dataset.setAge]?.name || "";
+        window.DidzagoAudio.speak(`Elegiste ${name}.`);
+      }
+    });
   });
 
   document.querySelectorAll("[data-pin]").forEach((btn) => {
