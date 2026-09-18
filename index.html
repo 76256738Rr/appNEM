@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2BB5A0" />
+  <title>Didzago — Aprende jugando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app" data-age="7-9">
+    <section class="screen screen--active" id="screen-splash" data-screen="splash">
+      <div class="sky"></div>
+      <div class="hills"></div>
+      <div class="splash">
+        <div class="video-frame video-frame--hero" role="img" aria-label="Aether, guía de Didzago">
+          <video id="aether-video" class="video-frame__media" src="img/aether.mp4" playsinline muted loop autoplay preload="metadata"></video>
+        </div>
+        <h1 class="brand">Didzago</h1>
+        <p class="tagline">Aprende jugando</p>
+        <button type="button" class="btn btn--primary btn--lg" data-go="onboarding">Empezar</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-onboarding" data-screen="onboarding">
+      <div class="sky sky--soft"></div>
+      <header class="topbar">
+        <button type="button" class="icon-btn" data-go="splash" aria-label="Volver">←</button>
+        <span class="topbar__title">¿Cuántos años tienes?</span>
+      </header>
+      <div class="onboarding">
+        <p class="lead" data-copy="onboarding-lead">Elige tu aventura. Didzago se adapta a ti.</p>
+        <div class="age-grid">
+          <button type="button" class="age-card" data-set-age="4-6">
+            <span class="age-card__art" aria-hidden="true">🎈</span>
+            <span class="age-card__range">4 – 6</span>
+            <span class="age-card__name">Peque explorador</span>
+          </button>
+          <button type="button" class="age-card age-card--active" data-set-age="7-9">
+            <span class="age-card__art" aria-hidden="true">🗺️</span>
+            <span class="age-card__range">7 – 9</span>
+            <span class="age-card__name">Aventurero</span>
+          </button>
+          <button type="button" class="age-card" data-set-age="10-13">
+            <span class="age-card__art" aria-hidden="true">🚀</span>
+            <span class="age-card__range">10 – 13</span>
+            <span class="age-card__name">Retador</span>
+          </button>
+        </div>
+        <button type="button" class="btn btn--primary btn--lg" data-go="home">Continuar</button>
+        <button type="button" class="link-quiet" data-go="padres-gate">Soy adulto / padre o madre</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-home" data-screen="home">
+      <div class="sky"></div>
+      <div class="hills hills--home"></div>
+      <header class="home-hero">
+        <div class="home-hero__top">
+          <p class="eyebrow brand-mark">Didzago</p>
+          <button type="button" class="sound-btn" data-audio-toggle aria-pressed="true" title="Sonido activado">
+            <span class="sound-btn__icon" aria-hidden="true">🔊</span>
+            <span data-audio-label>Sonido</span>
+          </button>
+        </div>
+        <h2 class="home-hero__hello" data-copy="home-hello">¡Hola, explorador!</h2>
+        <p class="home-hero__sub" data-copy="home-sub">Tu mundo te espera.</p>
+      </header>
+      <div class="world-map" role="list">
+        <button type="button" class="island island--math" data-subject="matematicas" data-go="mision" role="listitem">
+          <span class="island__icon">🔢</span>
+          <span class="island__label" data-copy="island-math">Matemáticas</span>
+        </button>
+        <button type="button" class="island island--read" data-subject="lectura" data-go="mision" role="listitem">
+          <span class="island__icon">📖</span>
+          <span class="island__label" data-copy="island-read">Lectura</span>
+        </button>
+        <button type="button" class="island island--sci" data-subject="ciencias" data-go="mision" role="listitem">
+          <span class="island__icon">🔬</span>
+          <span class="island__label" data-copy="island-sci">Ciencias</span>
+        </button>
+        <button type="button" class="island island--play" data-go="jugar" role="listitem">
+          <span class="island__icon">🎮</span>
+          <span class="island__label" data-copy="island-play">Jugar</span>
+        </button>
+      </div>
+      <div class="cta-dock">
+        <button type="button" class="btn btn--primary btn--lg" data-subject="mixto" data-go="mision">Continuar aventura</button>
+      </div>
+      <nav class="tabbar" aria-label="Navegación principal">
+        <button type="button" class="tab tab--active" data-go="home"><span>🏠</span><span data-copy="tab-home">Inicio</span></button>
+        <button type="button" class="tab" data-go="aprender"><span>📚</span><span data-copy="tab-learn">Aprender</span></button>
+        <button type="button" class="tab" data-go="jugar"><span>🎯</span><span data-copy="tab-play">Jugar</span></button>
+        <button type="button" class="tab" data-go="perfil"><span>⭐</span><span data-copy="tab-profile">Perfil</span></button>
+      </nav>
+    </section>
+
+    <section class="screen" id="screen-aprender" data-screen="aprender">
+      <div class="sky sky--leaf"></div>
+      <header class="page-head page-head--row">
+        <div>
+          <p class="brand-mark">Didzago</p>
+          <h2 data-copy="learn-title">Aprender</h2>
+          <p data-copy="learn-sub">Elige tu misión del día.</p>
+        </div>
+        <button type="button" class="sound-btn sound-btn--icon" data-audio-toggle aria-pressed="true" title="Sonido">
+          <span class="sound-btn__icon" aria-hidden="true">🔊</span>
+          <span class="sr-only" data-audio-label>Sonido</span>
+        </button>
+      </header>
+      <div class="path" id="learn-path">
+        <button type="button" class="station station--done" data-subject="matematicas" data-go="mision">
+          <span class="station__dot"></span>
+          <span class="station__body">
+            <strong data-copy="st1-title">Sumas mágicas</strong>
+            <small data-copy="st1-meta">Completada · +20 estrellas</small>
+          </span>
+        </button>
+        <button type="button" class="station station--now" data-subject="lectura" data-go="mision">
+          <span class="station__dot"></span>
+          <span class="station__body">
+            <strong data-copy="st2-title">Palabras del bosque</strong>
+            <small data-copy="st2-meta">En curso · 3 min</small>
+          </span>
+        </button>
+        <button type="button" class="station" data-subject="ciencias" data-go="mision">
+          <span class="station__dot"></span>
+          <span class="station__body">
+            <strong data-copy="st3-title">El ciclo del agua</strong>
+            <small data-copy="st3-meta">Nueva · Ciencias</small>
+          </span>
+        </button>
+        <button type="button" class="station" data-subject="mixto" data-go="mision">
+          <span class="station__dot"></span>
+          <span class="station__body">
+            <strong data-copy="st4-title">Reto estrella</strong>
+            <small data-copy="st4-meta">Generada para ti</small>
+          </span>
+        </button>
+      </div>
+      <p class="engine-note" id="path-note" hidden></p>
+      <nav class="tabbar" aria-label="Navegación principal">
+        <button type="button" class="tab" data-go="home"><span>🏠</span><span data-copy="tab-home">Inicio</span></button>
+        <button type="button" class="tab tab--active" data-go="aprender"><span>📚</span><span data-copy="tab-learn">Aprender</span></button>
+        <button type="button" class="tab" data-go="jugar"><span>🎯</span><span data-copy="tab-play">Jugar</span></button>
+        <button type="button" class="tab" data-go="perfil"><span>⭐</span><span data-copy="tab-profile">Perfil</span></button>
+      </nav>
+    </section>
+
+    <section class="screen" id="screen-mision" data-screen="mision">
+      <div class="sky sky--warm"></div>
+      <div class="hills hills--soft" aria-hidden="true"></div>
+      <header class="topbar">
+        <button type="button" class="icon-btn" data-go="aprender" aria-label="Volver">←</button>
+        <span class="topbar__title" data-copy="mission-bar">Misión</span>
+        <div class="topbar__actions">
+          <button type="button" class="sound-btn sound-btn--icon" data-audio-toggle aria-pressed="true" title="Sonido">
+            <span class="sound-btn__icon" aria-hidden="true">🔊</span>
+            <span class="sr-only" data-audio-label>Sonido</span>
+          </button>
+          <span class="stars-pill" id="mission-stars">⭐ 0</span>
+        </div>
+      </header>
+      <div class="mission mission--arena">
+        <div class="mission__buddy">
+          <div class="video-frame video-frame--buddy">
+            <video id="aether-video-mission" class="video-frame__media" src="img/aether.mp4" playsinline muted loop preload="none" aria-hidden="true"></video>
+          </div>
+        </div>
+        <p class="mission__title" id="mission-title">Misión</p>
+        <ol class="mission-stepper" id="mission-stepper" aria-label="Pasos de la misión">
+          <li class="mission-stepper__item" data-step="practice">Práctica</li>
+          <li class="mission-stepper__item" data-step="explanation">Explicación</li>
+          <li class="mission-stepper__item" data-step="challenge">Reto</li>
+        </ol>
+        <p class="mission__progress" id="mission-progress" hidden></p>
+        <div class="loading" id="mission-loading" hidden>
+          <div class="loading__orb"></div>
+          <p>Aether prepara tu misión…</p>
+        </div>
+        <div class="mission-stage" id="mission-stage" hidden>
+          <span class="mission-badge" id="mission-badge">Práctica</span>
+          <figure class="concept-hero" id="mission-concept" hidden>
+            <div class="concept-hero__media">
+              <img id="mission-image" class="concept-hero__img" alt="" />
+            </div>
+            <figcaption>
+              <strong id="mission-concept-title"></strong>
+              <p id="mission-concept-text"></p>
+              <div class="biblio" id="mission-biblio" hidden>
+                <strong>Bibliografía</strong>
+                <p id="mission-biblio-text"></p>
+              </div>
+            </figcaption>
+          </figure>
+          <div class="write-pad" id="mission-write-pad" hidden>
+            <p class="write-hint" id="mission-write-hint"></p>
+            <canvas id="mission-trace" class="write-pad__canvas" width="280" height="140" aria-label="Zona para trazar la letra"></canvas>
+            <div class="write-pad__actions">
+              <button type="button" class="btn btn--ghost btn--sm" id="mission-trace-clear">Borrar</button>
+            </div>
+          </div>
+          <h2 class="mission__prompt" id="mission-prompt">¿Cuánto es 3 + 2?</h2>
+          <button type="button" class="sound-listen" id="mission-listen" data-audio-speak>
+            <span aria-hidden="true">🔊</span> Escuchar
+          </button>
+          <p class="mission__hint" id="mission-hint" data-copy="mission-hint">Toca la respuesta correcta.</p>
+          <div class="choices choices--bounce" id="mission-choices"></div>
+          <p class="mission__feedback" id="mission-feedback" hidden></p>
+          <div class="mission-burst" id="mission-burst" hidden aria-hidden="true"></div>
+          <button type="button" class="btn btn--secondary" id="mission-next" hidden>Siguiente</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-jugar" data-screen="jugar">
+      <div class="sky sky--play"></div>
+      <header class="page-head">
+        <p class="brand-mark">Didzago</p>
+        <h2 data-copy="play-title">Jugar</h2>
+        <p data-copy="play-sub">Aprende mientras te diviertes.</p>
+      </header>
+      <div class="play-stage">
+        <div class="play-hero" aria-hidden="true">
+          <span class="play-hero__piece">A</span>
+          <span class="play-hero__piece">2</span>
+          <span class="play-hero__piece">★</span>
+          <span class="play-hero__piece">B</span>
+        </div>
+        <div class="play-actions">
+          <button type="button" class="btn btn--primary btn--lg" data-go="juego" data-game="memorama">Iniciar</button>
+          <button type="button" class="btn btn--ghost" data-go="juego" data-game="memorama" data-mode="libre">Modo libre</button>
+        </div>
+      </div>
+      <div class="game-list">
+        <button type="button" class="game-row" data-go="juego" data-game="memorama">
+          <span>🃏</span>
+          <span>
+            <strong data-copy="g1-title">Memorama silábico</strong>
+            <small data-copy="g1-meta">Empareja sonidos</small>
+          </span>
+        </button>
+        <button type="button" class="game-row" data-go="juego" data-game="puzzle">
+          <span>🧩</span>
+          <span>
+            <strong data-copy="g2-title">Puzzle numérico</strong>
+            <small data-copy="g2-meta">Ordena y suma</small>
+          </span>
+        </button>
+        <button type="button" class="game-row" data-go="juego" data-game="escape">
+          <span>🗝️</span>
+          <span>
+            <strong data-copy="g3-title">Escape del bosque</strong>
+            <small data-copy="g3-meta">Resuelve pistas</small>
+          </span>
+        </button>
+      </div>
+      <nav class="tabbar" aria-label="Navegación principal">
+        <button type="button" class="tab" data-go="home"><span>🏠</span><span data-copy="tab-home">Inicio</span></button>
+        <button type="button" class="tab" data-go="aprender"><span>📚</span><span data-copy="tab-learn">Aprender</span></button>
+        <button type="button" class="tab tab--active" data-go="jugar"><span>🎯</span><span data-copy="tab-play">Jugar</span></button>
+        <button type="button" class="tab" data-go="perfil"><span>⭐</span><span data-copy="tab-profile">Perfil</span></button>
+      </nav>
+    </section>
+
+    <section class="screen" id="screen-juego" data-screen="juego">
+      <div class="sky sky--play"></div>
+      <header class="topbar">
+        <button type="button" class="icon-btn" data-go="jugar" aria-label="Volver">←</button>
+        <span class="topbar__title" id="game-title">Memorama</span>
+        <span class="stars-pill" id="game-moves">0 pares</span>
+      </header>
+      <div class="loading" id="game-loading" hidden>
+        <div class="video-frame video-frame--buddy video-frame--loading">
+          <video id="aether-video-game" class="video-frame__media" src="img/aether.mp4" playsinline muted loop preload="none" aria-hidden="true"></video>
+        </div>
+        <p>Creando el juego…</p>
+      </div>
+      <p class="game-intro" id="game-intro" data-copy="game-intro">Encuentra las parejas.</p>
+      <div class="memory-board" id="memory-board" aria-label="Tablero de memorama"></div>
+      <div class="puzzle-board" id="puzzle-board" hidden></div>
+      <div class="escape-board" id="escape-board" hidden></div>
+      <div class="choices" id="game-choices" hidden></div>
+      <p class="mission__feedback" id="game-feedback" hidden></p>
+      <div class="cta-dock cta-dock--solo">
+        <button type="button" class="btn btn--ghost" id="game-again" hidden>Jugar otra vez</button>
+        <button type="button" class="btn btn--secondary" data-go="jugar">Volver a juegos</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-perfil" data-screen="perfil">
+      <div class="sky sky--soft"></div>
+      <header class="page-head">
+        <p class="brand-mark">Didzago</p>
+        <h2 data-copy="profile-title">Tu perfil</h2>
+      </header>
+      <div class="profile">
+        <div class="profile__avatar" aria-hidden="true">🦊</div>
+        <h3 id="profile-name">Explorador</h3>
+        <p class="profile__age" id="profile-age">Aventurero · 7–9</p>
+        <div class="stats">
+          <div class="stat"><strong id="stat-stars">40</strong><span>Estrellas</span></div>
+          <div class="stat"><strong id="stat-missions">3</strong><span>Misiones</span></div>
+          <div class="stat"><strong id="stat-streak">2</strong><span>Días</span></div>
+        </div>
+        <label class="toggle sound-toggle">
+          <span>🔊 Sonido y narración</span>
+          <input type="checkbox" id="toggle-audio-profile" data-audio-toggle-input checked />
+        </label>
+        <button type="button" class="btn btn--ghost" data-go="onboarding">Cambiar edad</button>
+        <button type="button" class="link-quiet" data-go="padres-gate">Zona para adultos</button>
+      </div>
+      <nav class="tabbar" aria-label="Navegación principal">
+        <button type="button" class="tab" data-go="home"><span>🏠</span><span data-copy="tab-home">Inicio</span></button>
+        <button type="button" class="tab" data-go="aprender"><span>📚</span><span data-copy="tab-learn">Aprender</span></button>
+        <button type="button" class="tab" data-go="jugar"><span>🎯</span><span data-copy="tab-play">Jugar</span></button>
+        <button type="button" class="tab tab--active" data-go="perfil"><span>⭐</span><span data-copy="tab-profile">Perfil</span></button>
+      </nav>
+    </section>
+
+    <section class="screen" id="screen-padres-gate" data-screen="padres-gate">
+      <div class="sky sky--soft"></div>
+      <header class="topbar">
+        <button type="button" class="icon-btn" data-go="home" aria-label="Volver">←</button>
+        <span class="topbar__title">Zona adultos</span>
+      </header>
+      <div class="gate">
+        <h2>¿Cuánto es 7 + 5?</h2>
+        <p>Solo para madres, padres o tutores.</p>
+        <div class="pin-row">
+          <button type="button" class="pin-btn" data-pin="10">10</button>
+          <button type="button" class="pin-btn" data-pin="12">12</button>
+          <button type="button" class="pin-btn" data-pin="15">15</button>
+        </div>
+        <p class="gate__error" id="gate-error" hidden>Intenta de nuevo</p>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-padres" data-screen="padres">
+      <div class="sky sky--soft"></div>
+      <header class="topbar">
+        <button type="button" class="icon-btn" data-go="home" aria-label="Salir">←</button>
+        <span class="topbar__title">Panel familiar</span>
+      </header>
+      <div class="parents">
+        <h2>Progreso de Didzago</h2>
+        <p class="lead">Resumen semanal del perfil activo.</p>
+        <ul class="parent-list">
+          <li><span>Tiempo de uso</span><strong id="parent-minutes">0 min</strong></li>
+          <li><span>Misiones completadas</span><strong id="parent-missions">0</strong></li>
+          <li><span>Motor Aether</span><strong id="parent-aether">Comprobando…</strong></li>
+          <li><span>Franja de edad</span><strong id="parent-age">7–9</strong></li>
+        </ul>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-aether" checked />
+          <span>Actividades con Aether (sin chat)</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-audio" checked />
+          <span>🔊 Sonido y narración por voz</span>
+        </label>
+        <label class="field">
+          <span>Límite diario</span>
+          <select id="time-limit">
+            <option>30 minutos</option>
+            <option selected>45 minutos</option>
+            <option>60 minutos</option>
+            <option>Sin límite</option>
+          </select>
+        </label>
+        <button type="button" class="btn btn--primary" data-go="home">Guardar y volver</button>
+      </div>
+    </section>
+  </div>
+  <script src="js/aether-video.js"></script>
+  <script src="js/didzago-audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
